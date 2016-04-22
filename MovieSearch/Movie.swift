@@ -14,6 +14,7 @@ class Movie {
     private let kRating = "vote_average"
     private let kSummary = "overview"
     private let kPoster = "poster_path"
+    static let kResults = "results"
     
     
     let title: String

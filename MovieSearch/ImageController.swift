@@ -11,16 +11,18 @@ import UIKit
 
 class ImageController {
     
-    static func imageForURL(url: String, completion: (image: UIImage?) -> Void) {
+    static func imageAtURL(movie: Movie, completion: (image: UIImage?) -> Void) {
+        
+        let url = "http://image.tmdb.org/t/p/w500/\(movie.posterEndpoint)"
         
         NetworkController.dataAtURL(url) { (success, data) in
+            guard let data = data else {completion(image: nil); return}
             
-            guard let data = data where success else { completion(image: nil); return }
             let image = UIImage(data: data)
-            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 completion(image: image)
             })
+            
         }
     }
 }

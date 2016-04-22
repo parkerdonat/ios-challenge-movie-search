@@ -10,30 +10,23 @@ import Foundation
 
 class MovieController {
     
-    static func searchForMovies(searchString: String, completion: (movieArray: [Movie]) -> Void) {
+    static func searchForMovie(title: String, completion: (movies: [Movie]?) -> Void) {
         
-        let key = "9730fb5307b38c315c5b99aa52f32f31"
-        let base = "https://api.themoviedb.org/3/movie"
-        let addPlusSignForSpaceInSearchTerm = searchString.stringByReplacingOccurrencesOfString(" ", withString: "+")
-        
-        let url = base + "?query=\(addPlusSignForSpaceInSearchTerm)" + "&api_key=\(key)"
+        let url = "http://api.themoviedb.org/3/search/movie?query=\(title)&api_key=68a8779098e355ac704c413416c684af"
         
         NetworkController.dataAtURL(url) { (success, data) in
             
             guard let data = data,
-                json = NetworkController.serializeDataWithReturn(data),
-                movieArray = json["results"] as? [[String: AnyObject]] where success
-                else { completion(movieArray: []); return }
+                let json = NetworkController.serializeDataWithReturn(data) else {completion(movies: []); return }
+            
+            
+            let movieArray = json[Movie.kResults] as! [[String: AnyObject]]
             
             let movies = movieArray.flatMap{ Movie(dictionary: $0)}
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completion(movieArray: movies)
+                completion(movies: movies)
             })
         }
-    }
-    
-    static func posterURLForString(movie: Movie) -> String {
-        return "http://image.tmdb.org/t/p/w500/\(movie.posterEndpoint)"
     }
 }
