@@ -11,11 +11,8 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
-    
     @IBOutlet var ratingLabel: UILabel!
-    
     @IBOutlet var summeryLabel: UILabel!
-    
     @IBOutlet var posterImage: UIImageView!
     
     
