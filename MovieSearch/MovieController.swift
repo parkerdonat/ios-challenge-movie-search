@@ -14,23 +14,26 @@ class MovieController {
         
         let key = "9730fb5307b38c315c5b99aa52f32f31"
         let base = "https://api.themoviedb.org/3/movie"
-        let modifiedSearchTerm = searchString.stringByReplacingOccurrencesOfString(" ", withString: "+")
-
-        let url = base + "?query=\(modifiedSearchTerm)" + "&api_key=\(key)"
+        let addPlusSignForSpaceInSearchTerm = searchString.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        
+        let url = base + "?query=\(addPlusSignForSpaceInSearchTerm)" + "&api_key=\(key)"
         
         NetworkController.dataAtURL(url) { (success, data) in
             
             guard let data = data,
-            json = NetworkController.serializeDataWithReturn(data),
-            movieArray = json["results"] as? [[String: AnyObject]] where success
-             else { completion(movieArray: []); return }
+                json = NetworkController.serializeDataWithReturn(data),
+                movieArray = json["results"] as? [[String: AnyObject]] where success
+                else { completion(movieArray: []); return }
             
             let movies = movieArray.flatMap{ Movie(dictionary: $0)}
-            completion(movieArray: movies)
-            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(movieArray: movies)
+            })
+        }
     }
     
     static func posterURLForString(movie: Movie) -> String {
-        return "http://image.tmdb.org/t/p/w500/\(movie.posterEndpoint).jpg"
+        return "http://image.tmdb.org/t/p/w500/\(movie.posterEndpoint)"
     }
 }

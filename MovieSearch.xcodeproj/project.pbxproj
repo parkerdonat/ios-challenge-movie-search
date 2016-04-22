@@ -14,6 +14,7 @@
 		DD98766A1CCAAF0D002D1BA2 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9876691CCAAF0D002D1BA2 /* Movie.swift */; };
 		DD98766C1CCAB2A8002D1BA2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98766B1CCAB2A8002D1BA2 /* NetworkController.swift */; };
 		DD98766E1CCAB8AF002D1BA2 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98766D1CCAB8AF002D1BA2 /* MovieController.swift */; };
+		DD9876701CCAC8D0002D1BA2 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98766F1CCAC8D0002D1BA2 /* ImageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DD9876691CCAAF0D002D1BA2 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DD98766B1CCAB2A8002D1BA2 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		DD98766D1CCAB8AF002D1BA2 /* MovieController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
+		DD98766F1CCAC8D0002D1BA2 /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				DD9876691CCAAF0D002D1BA2 /* Movie.swift */,
 				DD98766B1CCAB2A8002D1BA2 /* NetworkController.swift */,
 				DD98766D1CCAB8AF002D1BA2 /* MovieController.swift */,
+				DD98766F1CCAC8D0002D1BA2 /* ImageController.swift */,
 				1A4A23441CCAA554003A4350 /* Main.storyboard */,
 				1A4A23471CCAA554003A4350 /* Assets.xcassets */,
 				1A4A23491CCAA554003A4350 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD9876701CCAC8D0002D1BA2 /* ImageController.swift in Sources */,
 				DD98766E1CCAB8AF002D1BA2 /* MovieController.swift in Sources */,
 				DD98766A1CCAAF0D002D1BA2 /* Movie.swift in Sources */,
 				1A4A23411CCAA554003A4350 /* AppDelegate.swift in Sources */,
